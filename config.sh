@@ -1,0 +1,24 @@
+VERSION=1.0.0
+IMAGE_NAME_PREFIX=docker-sccache-dist-
+CONTAINER_NAME_PREFIX=docker-sccache-dist-
+
+BASE_IMAGE_NAME=${IMAGE_NAME_PREFIX}dist:${VERSION}
+SCHEDULER_IMAGE_NAME=${IMAGE_NAME_PREFIX}scheduler:${VERSION}
+BUILD_SERVER_IMAGE_NAME=${IMAGE_NAME_PREFIX}build-server:${VERSION}
+
+
+SERVER_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEaW5vQ2hpZXNhLmdpdGh1Yi5pbyIsInN1YiI6ImtpbmEiLCJhdWQiOiJtYXhpbmUiLCJpYXQiOjE2OTgzODQ2NzcsImV4cCI6MTY5ODM4NTI3N30.xrjOZInJQ0Knd9RHGYw2LnFcAJbdeSQl3NDETclb0ck"
+
+CLIENT_TOKEN="client-token"
+
+# Scheduler Config
+SCHEDULER_PORT="10600"
+# Set the scheduler url to the public ip of the scheduler
+SCHEDULER_URL="http://10.168.1.1:$SCHEDULER_PORT"
+
+# Build Server Config
+
+TOOCHAIN_CACHE_SIZE_BYTES="10737418240"
+# Set the build server's public ip and port
+BUILD_SERVER_PUBLIC_IP="10.168.1.2"
+BUILD_SERVER_PUBLIC_PORT="10601"
